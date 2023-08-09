@@ -1,18 +1,20 @@
-import { Delete, Height, ModeEdit, RemoveRedEye } from '@mui/icons-material'
+import { Delete, ModeEdit, RemoveRedEye } from '@mui/icons-material'
 import React, { useContext, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
+// import { Button } from '@mui/material';
 // import { getValue } from '@testing-library/user-event/dist/utils';
-import { Remove , Update_data } from "../redux/actions/Action";
+import { Remove, Update_data, Clear_Users } from "../redux/actions/Action";
 import { DeleteContext } from './context/ContextProvider';
+
 
 const Todo = () => {
 
     const { User_data } = useSelector((state) => state.todoreducers);
     // console.log(User_data);
 
-    const {dlttask, setDlttask} = useContext(DeleteContext)
+    const { dlttask, setDlttask } = useContext(DeleteContext)
 
 
     const dispatch = useDispatch()
@@ -31,26 +33,30 @@ const Todo = () => {
     const handleClose = () => setShow(false);
 
 
+
+
     const handleShow = (e) => {
         setShow(true)
         setUpdate(e)
     }
 
- // delete data function 
-            const remove = (id) => {
-                // console.log(id)
-                dispatch(Remove(id))
-                setDlttask(true)
-            }
-            
- // updata text data function 
+    // delete data function 
+    const remove = (id) => {
+        // console.log(id)
+        dispatch(Remove(id))
+        setDlttask(true)
+    }
+
+    // updata text data function 
     const usertask_update = () => {
-        dispatch(Update_data(update,ind))
+        dispatch(Update_data(update, ind))
         handleClose()
     }
 
- 
-    
+    const handleClearUsers = () => {
+        dispatch(Clear_Users(""));
+    };
+
 
     return (
         <>
@@ -107,18 +113,26 @@ const Todo = () => {
                     <Modal.Header >
                         <div className='todo col-lg-5 mx-auto d-flex jutify-content-between align-items-center'>
                             <input type="text" value={update} className='form-control col-lg-5 mt-2' onChange={(e) => setUpdate(e.target.value)} />
-                            
+
                         </div>
                     </Modal.Header>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={()=>usertask_update()}>
+                        <Button variant="primary" onClick={() => usertask_update()}>
                             Save Changes
                         </Button>
                     </Modal.Footer>
                 </Modal>
+                <div>
+                    {/* Clear all Users data button */}
+                    <Button className='mx-2 mx-2' onClick={handleClearUsers} >Clear Users</Button>
+
+                </div>
+                {/* <div>
+                    <p>Your component content</p>
+                </div> */}
             </div>
         </>
     )
