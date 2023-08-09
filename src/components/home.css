@@ -1,0 +1,13 @@
+.clrcntbtn{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.clrcntbtn p{
+   /* border: 2px solid black; */
+   background: #e75151;
+   padding: 5px 13px;
+   color: white;
+   border-radius: 3px;
+}

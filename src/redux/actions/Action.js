@@ -25,9 +25,18 @@ export const Update_data = (iteams, id) => {
 }
 
 // Clear all Users data action
-export const Clear_Users = (iteams, id) => {
+export const Clear_Users = () => {
     return {
         type: "CLEAR_USERS",
         // payload : iteams,
     }
 }
+
+
+// count all Users data action
+export const countUsers = (count) => {
+    return {
+      type: "COUNT_USERS",
+      payload: count,
+    };
+  };

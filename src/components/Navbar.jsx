@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,6 +12,7 @@ import Alert from 'react-bootstrap/Alert'
 const Navbar = () => {
 
     const { dlttask, setDlttask } = useContext(DeleteContext)
+
 
 
     return (
@@ -35,9 +36,11 @@ const Navbar = () => {
                 </AppBar>
             </Box>
             {
-                dlttask ? <Alert variant="danger" onClose={() => setDlttask(false)} dismissible>
-                    <Alert.Heading>Your Task remove Succesfully</Alert.Heading>
-                </Alert> : ""
+                 dlttask ? (
+                    <Alert variant="danger" onClose={() => setDlttask(false)} dismissible>
+                        <Alert.Heading>Your Task remove Succesfully</Alert.Heading>
+                    </Alert>
+                ) : null
             }
         </>
     )

@@ -7,7 +7,7 @@ const Initial_State = {
 export const todoreducers = (state = Initial_State, action) => {
     switch (action.type) {
 
-        
+
         // Add data action 
         case "ADD_DATA":
             return {
@@ -28,7 +28,7 @@ export const todoreducers = (state = Initial_State, action) => {
         // Update data action
         case "UPDATA_DATA":
 
-            const updatadata = state.User_data.map((e, k) => k == action.d ? action.payload : e)
+            const updatadata = state.User_data.map((e, k) => k === action.d ? action.payload : e)
 
             return {
                 ...state,
@@ -43,9 +43,15 @@ export const todoreducers = (state = Initial_State, action) => {
             return {
                 ...state,
                 User_data: [], // Clear the user list
-            };
+            }
 
 
+// count all Users data action
+        case "COUNT_USERS":
+            return {
+                ...state,
+                userCount: action.payload,
+            }
 
 
 

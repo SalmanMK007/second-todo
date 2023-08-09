@@ -3,9 +3,7 @@ import React, { useContext, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
-// import { Button } from '@mui/material';
-// import { getValue } from '@testing-library/user-event/dist/utils';
-import { Remove, Update_data, Clear_Users } from "../redux/actions/Action";
+import { Remove, Update_data } from "../redux/actions/Action";
 import { DeleteContext } from './context/ContextProvider';
 
 
@@ -52,11 +50,6 @@ const Todo = () => {
         dispatch(Update_data(update, ind))
         handleClose()
     }
-
-    const handleClearUsers = () => {
-        dispatch(Clear_Users(""));
-    };
-
 
     return (
         <>
@@ -125,14 +118,7 @@ const Todo = () => {
                         </Button>
                     </Modal.Footer>
                 </Modal>
-                <div>
-                    {/* Clear all Users data button */}
-                    <Button className='mx-2 mx-2' onClick={handleClearUsers} >Clear Users</Button>
-
-                </div>
-                {/* <div>
-                    <p>Your component content</p>
-                </div> */}
+                
             </div>
         </>
     )
